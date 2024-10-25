@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vtuber公司介紹</title>
+    <!-- 添加 favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- 支援 PNG 格式 -->
+    <link rel="icon" href="p.png" type="image/png">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .canvas1 {
+            width: 100%; /* 寬度 */
+            height: calc(100vw * 0.1); /* 高度 */
+            background-color: #ffffff; /* 畫布背景顏色 */
+            display: flex; /* 使用 Flexbox 排列內容 */
+            justify-content: center; /* 水平置中內容 */
+            align-items: center; /* 垂直置中內容 */
+            text-align: center;
+        }
+        .canvas2 {
+            width: 100%; /* 寬度 */
+            height: calc(100vw * 0.4); /* 高度 */
+            margin: auto; /* 自動置中 */
+            background-color: #ffffff; /* 畫布背景顏色 */
+            display: flex; /* 使用 Flexbox 排列內容 */
+            justify-content:center; /* 水平置中內容 */
+            align-items: center; /* 垂直置中內容 */
+        }
+        .canvas2-box {
+            width: 70vw; /* 寬度 */
+            height: calc(100vw * 0.25); /* 高度 */
+            margin: auto; /* 自動置中 */
+            background-color: #cef2f8; /* 畫布背景顏色 */
+            display: flex; /* 使用 Flexbox 排列內容 */
+            justify-content: center; /* 水平置中內容 */
+            align-items: center; /* 垂直置中內容 */
+            border-radius: 10px; /* 圓角 */
+            padding: calc(100vw * 0.05); /* 內邊距 */
+        }
+        .canvas3 {
+            width: 100%; /* 寬度 */
+            height: calc(100vw * 0.2); /* 高度 */
+            margin: auto; /* 自動置中 */
+            background-color: #b9e3ff; /* 畫布背景顏色 */
+            display: flex; /* 使用 Flexbox 排列內容 */
+            justify-content: flex-start; /* 將內容靠左 */
+            align-items: center; /* 垂直置中內容 */
+            gap:calc(100vw * 0.03);
+            border-top: 2px solid #000000; /* 上邊框 */
+            border-bottom: none; /* 下邊框 */
+            border-left: none; /* 去除左邊框 */
+            border-right: none; /* 去除右邊框 */
+        }
+        .canvas3-box1 {
+            width: auto;
+            aspect-ratio: 1; /* 高與寬的比例 */
+            height:  calc(100vw * 0.15); /* 高度 */
+            background-color: #000000; /* 畫布背景顏色 */
+            display: flex; /* 使用 Flexbox 排列內容 */
+            justify-content: center; /* 水平置中內容 */
+            align-items: center; /* 垂直置中內容 */
+            border-radius: 10px; /* 圓角 */
+            border: 1px solid #000000; /* 外框，2像素寬，顏色為 #3d4e5e */
+            gap:calc(100vw * 0.03);
+        }
+        .canvas3-box1 img {
+            width: 100%; /* 寬度為100% */
+            height: 100%; /* 高度為100% */
+            object-fit: cover; /* 使圖片填滿畫布並保持比例 */
+            margin: 0px;/*外邊距*/
+        }
+        .canvas3-box2 {
+            width: auto;
+            aspect-ratio: 1.7; /* 高與寬的比例 */
+            height:  calc(100vw * 0.2); /* 高度 */
+            background-color: #b9e3ff; /* 畫布背景顏色 */
+            display: flex; /* 使用 Flexbox 排列內容 */
+            justify-content: center; /* 水平置中內容 */
+            align-items: center; /* 垂直置中內容 */
+        }
+        .image-button {
+            width: auto;
+            aspect-ratio: 1.8; /* 高與寬的比例 */
+            height:  calc(100vw * 0.15); /* 高度 */
+            display: flex; /* 使用 Flexbox 排列內容 */
+            align-items: center; /* 垂直置中內容 */
+            padding:10px 20px; /* 內邊距 */
+            background-color: #ffffff; /* 按鈕背景顏色 */
+            color: white; /* 文字顏色 */
+            text-decoration: none; /* 去除下劃線 */
+            border: none; /* 去除邊框 */
+            border-radius: 8px; /* 圓角 */
+            cursor: pointer; /* 滑鼠指標為手型 */
+            transition: transform 0.3s; /* 過渡效果 */
+        }
+
+        .image-button:hover {
+            transform: scale(1.05); /* 懸停時放大 */
+        }
+
+        .button-image {
+            width: auto;
+            aspect-ratio: 1; /* 高與寬的比例 */
+            height:  calc(100vw * 0.16); /* 高度 */
+            border-radius: 8px; /* 圓角 */
+            margin-right: 10px; /* 圖片與文字之間的距離 */
+        }
+        .canvas4 {
+            width: 100%; /* 寬度 */
+            height: calc(100vw * 0.3); /* 高度 */
+            margin: auto; /* 自動置中 */
+            background-color: #ffffff; /* 畫布背景顏色 */
+            display: flex; /* 使用 Flexbox 排列內容 */
+            justify-content: center; /* 水平置中內容 */
+            align-items: center; /* 垂直置中內容 */
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas1">
+        <p style="font-size: 6vw; color: #000;" ><strong>Vtuber公司介紹</strong></p>
+    </div>
+    <div class="canvas2">
+        <div class="canvas2-box">
+            <p style="font-size: 1.5vw; color: #000;" >Vtuber，或稱虛擬主播，是一種以虛擬角色形象進行直播或影片創作的網絡文化現象。<br><br>
+                這些虛擬角色通常是動畫風格的，利用3D或2D建模技術創造出來，並透過動作捕捉技術讓角色能夠隨著實際主播的動作和聲音進行互動。
+                包括遊戲直播、聊天、音樂表演、動漫相關的討論等。
+                <br>Vtuber的魅力在於角色的個性化和故事背景，這讓觀眾能夠與角色產生情感連結，並且享受其獨特的娛樂風格。<br><br>
+                Vtuber分為個人式與公司型個人式Vtuber大多數資源由個人自行負擔，在內容創作上較受到限制。
+                至於品牌形象完全依賴個人創作，風格和內容更具個人色彩，能吸引特定粉絲群體。
+                主要收入來源依賴觀眾贊助、訂閱和一些商業合作，收益波動可能較大。<br>
+                而公司型Vtuber通常由專業團隊支持，包括動畫師、設計師和行銷人員，有更多的資金和資源來進行高品質的直播和製作。
+                但直播內容或未來動向可能會遵循公司的內容策略和指導方針，商業化程度較高。常見的收入來源，有廣告、贊助、周邊商品等。<br>
+                <br>以下介紹幾個在日本有相當規模的Vtuber公司
+                </p>
+        </div>
+    </div>
+    <div class="canvas3">
+        <div class="canvas3-box2">
+            <a href="Hololive.html" class="image-button">
+                <img src="Hololive.jpg" alt="圖片描述" class="button-image">
+                <p style="font-size: 2.5vw;; color: #000;" >Hololive</p>
+            </a>
+        </div>
+        <div class="canvas3-box1">
+            <img src="Hololive1.jpg" alt="圖片描述" class="button-image">
+        </div>
+        <div class="canvas3-box1">
+            <img src="Hololive2.jpg" alt="圖片描述" class="button-image">
+        </div>
+        <div class="canvas3-box1">
+            <img src="Hololive3.jpg" alt="圖片描述" class="button-image">
+        </div>
+    </div>
+    <div class="canvas3">
+        <div class="canvas3-box2">
+            <a href="2434.html" class="image-button">
+                <img src="2434.jpg" alt="圖片描述" class="button-image">
+                <p style="font-size: 2vw;; color: #000;" >にじさんじ</p>
+            </a>
+        </div>
+        <div class="canvas3-box1">
+            <img src="24341.jpg" alt="圖片描述" class="button-image">
+        </div>
+        <div class="canvas3-box1">
+            <img src="24342.jpg" alt="圖片描述" class="button-image">
+        </div>
+        <div class="canvas3-box1">
+            <img src="24343.jpg" alt="圖片描述" class="button-image">
+        </div>
+    </div>
+    <div class="canvas3">
+        <div class="canvas3-box2">
+            <a href="VSPO.html" class="image-button">
+                <img src="VSPO.jpg" alt="圖片描述" class="button-image">
+                <p style="font-size: 2.5vw;; color: #000;" >VSPO</p>
+            </a>
+        </div>
+        <div class="canvas3-box1">
+            <img src="VSPO1.jpg" alt="圖片描述" class="button-image">
+        </div>
+        <div class="canvas3-box1">
+            <img src="VSPO2.jpg" alt="圖片描述" class="button-image">
+        </div>
+        <div class="canvas3-box1">
+            <img src="VSPO3.jpg" alt="圖片描述" class="button-image">
+        </div>
+    </div>
+    <div class="canvas4">
+        <p style="font-size: 1.5vw; color: #000; text-align: center;" >2024/10/25台東大學網頁作業<br>組員:楊崴棋、徐秉均、廖育陞、陳柏儒<br>資料來源:<br></p>
+</body>
+</html>
+<!--嘿嘿嘿!!剛好兩百行啦-->

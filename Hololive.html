@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hololives</title>
+    <!-- 添加 favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- 支援 PNG 格式 -->
+    <link rel="icon" href="Hololive.jpg" type="image/jpg">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .canvas1 {
+            width: 100%; /* 寬度 */
+            height: calc(100vw * 0.5); /* 高度 */
+            background-color: #ffffff; /* 畫布背景顏色 */
+            display: flex; /* 使用 Flexbox 排列內容 */
+            align-items: center; /* 垂直置中內容 */
+            text-align: center;
+            justify-content: flex-start; /* 將內容靠左 */
+            align-items: center; /* 垂直置中內容 */
+        }
+        .canvas1-box0{
+            width: 10%; /* 寬度 */
+            height: calc(100vw * 0.5); /* 高度 */
+        }
+        .canvas1-box1 {
+            width: 35%; /* 寬度 */
+            height: calc(100vw * 0.5); /* 高度 */
+            background-color: #ffffff; /* 畫布背景顏色 */
+            display: flex; /* 使用 Flexbox 來排列內容 */
+            flex-direction: column; /* 讓內容垂直排列 */
+            justify-content: center; /* 垂直方向靠上 */
+            align-items: center; /* 垂直置中內容 */
+        }
+        .box1-chart1{
+            width: auto;
+            aspect-ratio: 1; /* 高與寬的比例 */
+            height:  calc(100vw * 0.15); /* 高度 */
+            background-color: #ffffff; /* 畫布背景顏色 */
+            display: flex; /* 使用 Flexbox 排列內容 */
+            justify-content: center; /* 水平置中內容 */
+            align-items: center; /* 垂直置中內容 */
+            border-radius: 10px; /* 圓角 */
+            border: 1px solid #000000; /* 外框，2像素寬，顏色為 #3d4e5e */
+            gap:calc(100vw * 0.03);
+        }
+        .box1-chart1 img {
+            width: 100%; /* 寬度為100% */
+            height: 100%; /* 高度為100% */
+            object-fit: cover; /* 使圖片填滿畫布並保持比例 */
+            margin: 0px;/*外邊距*/
+            transition: transform 0.3s; /* 過渡效果 */
+        }
+        .box1-chart1 img:hover {
+            transform: scale(1.03); /* 懸停時放大 */
+        }
+        .canvas1-box2 {
+            width: 45%; /* 寬度 */
+            height: calc(100vw * 0.5); /* 高度 */
+            background-color: #ffffff; /* 畫布背景顏色 */
+            display: flex; /* 使用 Flexbox 排列內容 */
+            justify-content: center; /* 水平置中內容 */
+            align-items: center; /* 垂直置中內容 */
+            text-align: center;
+        }
+        .canvas3 {
+            width: 100%; /* 寬度 */
+            height: calc(100vw * 0.6); /* 高度 */
+            display: flex;/* 使用 Flexbox 排列內容 */
+            justify-content: center; /* 水平置中 */
+            align-items: center; /* 垂直置中內容 */
+            background-color: #ffffff; /* 主畫布背景顏色 */
+        }
+        .canvas3-box {
+            width: calc(100vw * 0.2); /* 固定寬度 */
+            height: calc(100vw * 0.45); /* 固定高度 */
+            background-color: #b1b1b1; /* 小畫布顏色 */
+            display: flex; /* 使用 Flexbox 來排列內容 */
+            flex-direction: column; /* 讓內容垂直排列 */
+            justify-content: flex-start; /* 垂直方向靠上 */
+            align-items: flex-start; /* 垂直方向靠上 */
+            align-items: center; /* 垂直置中內容 */
+            margin:calc(100vw * 0.01); /* 畫布間距 */
+            border-radius:10px; /* 圓角 */
+            padding:calc(100vw * 0.03); /* 內邊距 */
+        }
+        .canvas3-box:hover {
+            transform: scale(1.03); /* 懸停時放大 */
+        }
+        .circle-canvas3-box {
+            width: auto;
+            aspect-ratio: 1; /* 高與寬的比例保持一致 */
+            height: calc(100vw * 0.2); /* 圓形高度 */
+            border-radius: 50%; /* 使畫布成為圓形 */
+            overflow: hidden; /* 隱藏超出圓形邊界的部分 */
+            display: flex; /* 使用 Flexbox 排列內容 */
+            justify-content: center; /* 水平置中內容 */
+            align-items: center; /* 垂直置中內容 */
+            background-color: #4b6883; /* 背景顏色，可選 */
+        }
+
+        .circle-canvas3-box img {
+            width: 100%; /* 圖片寬度填滿 */
+            height: 100%; /* 圖片高度填滿 */
+            object-fit: cover; /* 保持圖片比例並裁切多餘部分 */
+        }
+
+        .cas3-box2 {
+            width: calc(100vw * 0.2); /* 固定寬度 */
+            height: calc(100vw * 0.28); /* 固定高度 */
+            background-color: #ffffff; /* 小畫布顏色 */
+            display: flex; /* 使用 Flexbox 來排列內容 */
+            justify-content: center; /* 水平置中 */
+            margin:calc(100vw * 0.01); /* 畫布間距 */
+            border-radius: 10px; /* 圓角 */
+            padding:calc(100vw * 0.01); /* 內邊距 */
+        }
+        .canvas2 {
+            width: 100%; /* 寬度 */
+            height: calc(100vw * 0.1); /* 高度 */
+            background-color: #ffffff; /* 畫布背景顏色 */
+            display: flex; /* 使用 Flexbox 排列內容 */
+            justify-content: center; /* 水平置中內容 */
+            align-items: center; /* 垂直置中內容 */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas1">
+        <div class="canvas1-box0"></div>
+        <div class="canvas1-box1">
+            <a href="https://hololivepro.com/" class="box1-chart1" target="_blank">
+                <img src="Hololive.jpg" alt="圖片描述" class="box1-chart1 img">
+            </a>
+            <p style="font-size: 4vw;; color: #000;" >Hololive</p>
+        </div>
+        <div class="canvas1-box2">
+            <p style="font-size: 1.3vw; color: #000; text-align: left;">
+                Hololive是目前vtuber之中最大的公司，主要是一間偶像團體，但是是用vtuber的形式來表現。<br>
+                平常成員們會開打遊戲或著唱歌雜談之類的直播，但到了生日、或者周年的時候，有時會開3D LIVE，甚至不時會有3D的小短片、COVER歌曲之類的。<br>
+                CEO：谷鄉元昭（Yagoo）、Best Girl<br>
+                目前最多訂閱者：Gawr Gura<br>
+                重大事件:Gawr Gura(出道時一聲A導致粉絲飆升，後來超越始祖絆愛的粉絲人數)
+                桐生ココ(當時畢業LIVE人數接近50萬人同時觀看)
+                潤羽るしあ(與日本知名歌手まふまふ疑似曖昧，導致炎上)
+                星街すいせい(第一位vtuber上The first take)
+                夜空メル(因洩漏公司機密而被退)
+                Aちゃん(公司元老，在公司7年，但因要照顧父母而退出幕後)
+                湊あくあ(直播6年，畢業LIVE 75萬人同時觀看，單場直播收益3千多萬日幣，伝説のアイドル)
+                Watson Amelia(終止直播，但還會與hololive合作)
+            </p>
+        </div>
+        <div class="canvas1-box0"></div>
+    </div>
+    <div class="canvas3">
+        <div class="canvas3-box">
+            <div class="circle-canvas3-box">
+                <img src="Hololive1.jpg" alt="圓形圖片">
+            </div>
+            <div class="cas3-box2">
+                <p style="font-size: 1.5vw; color: #000;">我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆</p>
+            </div>
+        </div>
+        <div class="canvas3-box">
+            <div class="circle-canvas3-box">
+                <img src="Hololive2.jpg" alt="圓形圖片">
+            </div>
+            <div class="cas3-box2">
+                <p style="font-size: 1.5vw; color: #000;">我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆</p>
+            </div>
+        </div>
+        <div class="canvas3-box">
+            <div class="circle-canvas3-box">
+                <img src="Hololive3.jpg" alt="圓形圖片">
+            </div>
+            <div class="cas3-box2">
+                <p style="font-size: 1.5vw; color: #000;">我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆我婆</p>
+            </div>
+        </div>
+    </div>
+    <div class="canvas2">
+        <p>2024/10/25台東大學網頁作業<br>組員:楊崴棋、徐秉均、廖育陞、陳柏儒<br>資料來源:</p>
+    </div>
+</body>
+</html>
